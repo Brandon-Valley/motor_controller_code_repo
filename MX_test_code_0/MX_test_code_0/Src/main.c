@@ -106,7 +106,7 @@ int main(void)
 	//Ld2 pin refers to "PA5" pin, which is D13 pin to which led is connected
 	HAL_GPIO_TogglePin(LED_RED_1_GPIO_Port,LED_RED_1_Pin); //Toggle LED
 
-	HAL_Delay(2000); //Delay 1 Seconds
+	HAL_Delay(1000); //Delay 1 Seconds
   /* USER CODE BEGIN 3 */
 
   }
