@@ -1,0 +1,24 @@
+--cpu=Cortex-M4.fp
+"mx_test_code_0\startup_stm32f405xx.o"
+"mx_test_code_0\main.o"
+"mx_test_code_0\stm32f4xx_it.o"
+"mx_test_code_0\stm32f4xx_hal_msp.o"
+"mx_test_code_0\stm32f4xx_hal_tim.o"
+"mx_test_code_0\stm32f4xx_hal_tim_ex.o"
+"mx_test_code_0\stm32f4xx_hal_rcc.o"
+"mx_test_code_0\stm32f4xx_hal_rcc_ex.o"
+"mx_test_code_0\stm32f4xx_hal_flash.o"
+"mx_test_code_0\stm32f4xx_hal_flash_ex.o"
+"mx_test_code_0\stm32f4xx_hal_flash_ramfunc.o"
+"mx_test_code_0\stm32f4xx_hal_gpio.o"
+"mx_test_code_0\stm32f4xx_hal_dma_ex.o"
+"mx_test_code_0\stm32f4xx_hal_dma.o"
+"mx_test_code_0\stm32f4xx_hal_pwr.o"
+"mx_test_code_0\stm32f4xx_hal_pwr_ex.o"
+"mx_test_code_0\stm32f4xx_hal_cortex.o"
+"mx_test_code_0\stm32f4xx_hal.o"
+"mx_test_code_0\system_stm32f4xx.o"
+--library_type=microlib --strict --scatter "MX_test_code_0\MX_test_code_0.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "MX_test_code_0.map" -o MX_test_code_0\MX_test_code_0.axf
