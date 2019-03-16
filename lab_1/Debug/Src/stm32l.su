@@ -1,0 +1,2 @@
+stm32l.c:10:6:STM32_EnableInterrupts	4	static
+stm32l.c:15:6:STM32_DisableInterrupts	4	static

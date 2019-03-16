@@ -1,0 +1,7 @@
+tasks_lab_1.c:37:6:lab1_power_up	4	static
+tasks_lab_1.c:45:6:lab1_init	8	static
+tasks_lab_1.c:56:6:timer_cb_test1	16	static
+tasks_lab_1.c:61:6:timer_cb_test2	16	static
+tasks_lab_1.c:81:6:check_input_loop	8	static
+tasks_lab_1.c:93:6:check_uart_loop	8	static
+tasks_lab_1.c:112:6:read_adc_loop	32	static

@@ -1,0 +1,8 @@
+gpio.c:14:6:GPIO_Init	24	static
+gpio.c:51:6:GPIO_StructInit	16	static
+gpio.c:62:6:GPIO_SetAlternateFunction	32	static
+gpio.c:83:6:GPIO_SetMode	32	static
+gpio.c:97:6:GPIO_SetPull	32	static
+gpio.c:111:10:GPIO_GetPins	16	static
+gpio.c:117:6:GPIO_SetPins	16	static
+gpio.c:123:6:GPIO_ClearPins	16	static
