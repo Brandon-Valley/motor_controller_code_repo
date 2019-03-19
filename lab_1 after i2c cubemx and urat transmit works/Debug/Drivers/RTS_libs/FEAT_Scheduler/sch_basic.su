@@ -1,0 +1,12 @@
+sch_basic.c:139:6:sch_default_callback	16	static
+sch_basic.c:156:6:sch_power_up	16	static
+sch_basic.c:186:6:sch_init	4	static
+sch_basic.c:197:9:sch_test	4	static
+sch_basic.c:207:6:sch_loop	24	static
+sch_basic.c:254:6:sch_remove_timeout	24	static
+sch_basic.c:296:6:sch_correct_time_shift	16	static
+sch_basic.c:308:9:sch_create_timeout	32	static
+sch_basic.c:358:9:sch_add_loop	24	static
+sch_basic.c:386:6:sch_init_timeout_list	4	static
+sch_basic.c:396:14:get_free_timeout	16	static
+sch_basic.c:415:6:print_timeouts	16	static
