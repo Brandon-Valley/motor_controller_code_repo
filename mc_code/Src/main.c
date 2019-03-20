@@ -89,11 +89,56 @@ static void MX_I2C1_Init(void);
   * @retval int
   */
 
-#define NUNCHUCK_ADDRESS  0x52
+
+
+#include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
+
+void vprint(const char *fmt, va_list argp)
+{
+    char string[200];
+    if(0 < vsprintf(string,fmt,argp)) // build string
+    {
+        HAL_UART_Transmit(&huart2, (uint8_t*)string, strlen(string), 0xffffff); // send message via UART
+    }
+}
+
+void my_printf(const char *fmt, ...) // custom printf() function
+{
+    va_list argp;
+    va_start(argp, fmt);
+    vprint(fmt, argp);
+    va_end(argp);
+}
+
+
+
+
+
+
+
+
+
+#define NUNCHUCK_ADDRESS  0xA4
 
 
 int main(void)
 {
+
+	uint16_t year = 2015;
+	uint8_t month = 12;
+	uint8_t day   = 18;
+	char* date = "date";
+
+	// "Today's date: 2015-12-18"
+	my_printf("Today's %s: %d-%d-%d\r\n", date, year, month, day);
+
+	uint8_t msg1[] = "test print";
+	HAL_UART_Transmit(&huart2, msg1, strlen((char*)msg1), 5) ;
+
+
+
 	  /* USER CODE BEGIN 1 */
 	//	sch_power_up ();
 	//
@@ -156,8 +201,8 @@ int main(void)
 	  init_data[1] = 0x00;
 	  HAL_I2C_Master_Transmit(&hi2c1, NUNCHUCK_ADDRESS, init_data, 2, 100);
 	//  twi_send_msg(&TWID, NUNCHUCK, &init_data[0], 2);
-	  init_data[0] = 0x00;
-	  HAL_I2C_Master_Transmit(&hi2c1, NUNCHUCK_ADDRESS, init_data, 1, 100);
+//	  init_data[0] = 0x00;
+//	  HAL_I2C_Master_Transmit(&hi2c1, NUNCHUCK_ADDRESS, init_data, 1, 100);
 
 
 
@@ -166,7 +211,7 @@ int main(void)
 
 	  //read from nunchuck
 	  uint8_t data[6];
-	  const uint8_t buf[] = {0};
+	  uint8_t buf[] = {0};
 
 	//  HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
 	//  HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
@@ -175,9 +220,10 @@ int main(void)
 
 	  while(1)
 	  {
+		  uint8_t msg1[] = "ABCCC";
+		  HAL_UART_Transmit(&huart2, msg1, strlen((char*)msg1), 5) ;
 		  HAL_I2C_Master_Transmit(&hi2c1, NUNCHUCK_ADDRESS, buf, 1, 100);
-		  HAL_I2C_Master_Receive (&hi2c1, NUNCHUCK_ADDRESS, &data, 7, 100);
-
+		  HAL_I2C_Master_Receive (&hi2c1, NUNCHUCK_ADDRESS, data, 6, 100);
 	  }
 
 
@@ -187,56 +233,10 @@ int main(void)
 
 	  while (1)
 	  {
-
-
-
 		  uint8_t msg1[] = "ABCCC";
 		  HAL_UART_Transmit(&huart2, msg1, strlen((char*)msg1), 5) ;
 	  }
-	  /* USER CODE END 3 */
 
-
-
-
-
-
-//  /* USER CODE BEGIN 1 */
-//
-//  /* USER CODE END 1 */
-//
-//  /* MCU Configuration--------------------------------------------------------*/
-//
-//  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
-//  HAL_Init();
-//
-//  /* USER CODE BEGIN Init */
-//
-//  /* USER CODE END Init */
-//
-//  /* Configure the system clock */
-//  SystemClock_Config();
-//
-//  /* USER CODE BEGIN SysInit */
-//
-//  /* USER CODE END SysInit */
-//
-//  /* Initialize all configured peripherals */
-//  MX_GPIO_Init();
-//  MX_USART2_UART_Init();
-//  MX_I2C1_Init();
-//  /* USER CODE BEGIN 2 */
-//
-//  /* USER CODE END 2 */
-//
-//  /* Infinite loop */
-//  /* USER CODE BEGIN WHILE */
-//  while (1)
-//  {
-//    /* USER CODE END WHILE */
-//
-//    /* USER CODE BEGIN 3 */
-//  }
-//  /* USER CODE END 3 */
 }
 
 /**
